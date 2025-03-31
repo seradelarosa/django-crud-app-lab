@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- add shortcut icon here later -->
+    <link rel="shortcut icon" type="image/png" href="" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
+    <title>Clean Slate - Sera's Skincare and Beyond</title>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <div class="header-logo-container">
+            <a href="/">
+                <!-- correct image src later -->
+                <img src="{% static 'images/placeholder.svg' %}" alt="The Clean Slate Logo" />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/morning">Morning Routine</a></li>
+                <li><a href="/evening">Evening Routine</a></li>
+                <li><a href="/weekly">Weekly Routine</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+
+</html>
