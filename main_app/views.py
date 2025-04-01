@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # Import HttpResponse to send text-based responses
 from django.http import HttpResponse
-from .fixtures.skincare_data import skincare_products
+from .models import SkincareProduct
 
 
 # Define the home view function
@@ -10,15 +10,12 @@ def home(request):
     return render(request, 'home.html')
 
 def morning(request):
+    skincare_products = SkincareProduct.objects.all()
     # for product in skincare_products:
     #     product.image_url = f"{product.image}"
 
     return render(request, 'skincare/morning.html', {'skincare_products': skincare_products})
 
-# def my_view(request):
-#     context = {
-#         'class_a': class_a_instances,
-#         'class_b': class_b_instances,
-#         'class_c': class_c_instances,
-#     }
-#     return render(request, 'myapp/template.html', context)
+# def sk_product_detail(request):
+#     skincare_product = SkincareProduct.objects.get(id=skincare_product_id)
+#     return render(request, 'skincare/product.html', {'skincare_product': skincare_product})
