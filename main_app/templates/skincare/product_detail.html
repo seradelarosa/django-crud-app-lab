@@ -6,11 +6,16 @@
 
 
 {% block content %}
-<section>
-    <a href="/"><button>Back</button></a>
+<section class="cat-container">
+    <a href="javascript:history.back()"><button>Back</button></a>
     <h3>{{product.name}}</h3>
     <p><strong>Brand:</strong> {{ product.brand }}</p>
     <p><strong>Benefits:</strong> {{ product.benefits }}</p>
     <p><strong>Value:</strong> {{ product.value }}</p>
+
+    <div class="cat-actions">
+        <a href="{% url 'product_update' product.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'product_delete' product.id %}" class="btn danger">Delete</a>
+      </div>
 </section>
 {% endblock %}

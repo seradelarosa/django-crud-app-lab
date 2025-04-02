@@ -8,22 +8,30 @@
 <h1>Sera's Evening Skincare Routine</h1>
 <hr />
 
+<h3>Filters</h3>
+<ul>
+  <li><a href="{% url 'all_skincare' %}">All Skincare</a></li>
+  <li><a href="{% url 'morning' %}">Morning</a></li>
+  <li><a href="{% url 'evening' %}">Evening</a></li>
+  <li><a href="{% url 'weekly' %}">Weekly</a></li>
+  <li><a href="{% url 'product_create' %}">Add a Product</a></li>
+</ul>
+
 <section class="card-container">
   {% for product in skincare_products %}
     {% if product.category == 'evening' %}
       <div class="card">
-        <a href="/{{ product.id }}">
+       
         <div class="card-content">
           <div class="card-img-container">
             <img src="{% static product.image %}" alt="{{ product.product }}" />
           </div>
-          <h2 class="card-title">{{ product.product }}</h2>
-          <h3>{{product.name}}</h3>
+          <a href="{% url 'product_detail' product.id %}"><h3 class="card-title">{{product.name}}</h3></a>
           <p><strong>Brand:</strong> {{ product.brand }}</p>
           <p><strong>Benefits:</strong> {{ product.benefits }}</p>
           <p><strong>Value:</strong> {{ product.value }}</p>
         </div>
-        </a>
+        
       </div>
     {% endif %}
   {% endfor %}
