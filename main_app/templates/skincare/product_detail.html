@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/cats/cat-detail.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+<section>
+    <a href="/"><button>Back</button></a>
+    <h3>{{product.name}}</h3>
+    <p><strong>Brand:</strong> {{ product.brand }}</p>
+    <p><strong>Benefits:</strong> {{ product.benefits }}</p>
+    <p><strong>Value:</strong> {{ product.value }}</p>
+</section>
+{% endblock %}

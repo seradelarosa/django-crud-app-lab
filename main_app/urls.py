@@ -6,4 +6,5 @@ urlpatterns = [
     path('morning/', views.morning, name='morning'),
     path('evening/', views.evening, name='evening'),
     path('weekly/', views.weekly, name='weekly'),
+    path('<int:product_id>/', views.product_detail, name='product_detail')
 ]

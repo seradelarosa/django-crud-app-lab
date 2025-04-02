@@ -24,6 +24,10 @@ def weekly(request):
     skincare_products = SkincareProduct.objects.all()
     return render(request, 'skincare/weekly.html', {'skincare_products': skincare_products})
 
+def product_detail(request, product_id):
+    skincare_product = SkincareProduct.objects.get(id=product_id)
+    return render(request, 'skincare/product_detail.html', {'product': skincare_product})
+
 # def sk_product_detail(request):
 #     skincare_product = SkincareProduct.objects.get(id=skincare_product_id)
 #     return render(request, 'skincare/product.html', {'skincare_product': skincare_product})
