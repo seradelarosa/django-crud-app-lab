@@ -13,8 +13,16 @@ def morning(request):
     skincare_products = SkincareProduct.objects.all()
     # for product in skincare_products:
     #     product.image_url = f"{product.image}"
-
     return render(request, 'skincare/morning.html', {'skincare_products': skincare_products})
+
+def evening(request):
+    skincare_products = SkincareProduct.objects.all()
+    return render(request, 'skincare/evening.html', {'skincare_products': skincare_products})
+
+
+def weekly(request):
+    skincare_products = SkincareProduct.objects.all()
+    return render(request, 'skincare/weekly.html', {'skincare_products': skincare_products})
 
 # def sk_product_detail(request):
 #     skincare_product = SkincareProduct.objects.get(id=skincare_product_id)

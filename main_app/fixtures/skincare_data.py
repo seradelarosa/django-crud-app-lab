@@ -1,7 +1,7 @@
 class SkincareProduct:
-    def __init__(self, product, brand, benefits, value, category, image):
+    def __init__(self, name, brand, benefits, value, category, image):
+        self.name = product
         self.brand = brand
-        self.product = product
         self.benefits = benefits
         self.value = value
         self.category = category
@@ -12,7 +12,7 @@ class SkincareProduct:
 skincare_products = [
     # morning
     SkincareProduct(
-        product='Green Plum Refreshing Cleanser',
+        name='Green Plum Refreshing Cleanser',
         brand='Beauty of Joseon',
         benefits='A refreshing, gentle, low pH cleanser. Deep moisturizing, acne care, sooth irritated skin, thorough cleansing, oil & moisture balancing.',
         value='$9.10',

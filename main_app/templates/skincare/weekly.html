@@ -5,12 +5,12 @@
 />
 {% endblock %} {% block content %}
 
-<h1>Sera's Morning Skincare Routine</h1>
+<h1>Sera's Weekly Skincare Routine</h1>
 <hr />
 
 <section class="card-container">
   {% for product in skincare_products %}
-    {% if product.category == 'morning' %}
+    {% if product.category == 'weekly' %}
       <div class="card">
         <div class="card-content">
           <div class="card-img-container">
