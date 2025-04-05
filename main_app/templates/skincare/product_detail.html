@@ -18,4 +18,42 @@
         <a href="{% url 'product_delete' product.id %}" class="btn danger">Delete</a>
       </div>
 </section>
+
+<section>
+  <h3>Recent Usage</h3>
+  <ul>
+    {% for log in usage_logs %}
+        <li>
+            <strong>{{ log.usage_time|date:"Y-m-d H:i" }}</strong> - 
+            {{ log.usage_category|capfirst }} usage
+        </li>
+    {% empty %}
+        <li>No usage logs for this product yet.</li>
+    {% endfor %}
+  </ul>
+
+     <!-- link to the full usage logs page -->
+  <a href="{% url 'usage_logs' %}">View all usage logs</a>
+
+  <!-- add new log -->
+  <h3>Add New Usage Log</h3>
+  <form method="POST">
+    {% csrf_token %}
+    <label for="usage_category">Time of Day:</label>
+    <select name="usage_category">
+        <option value="morning">Morning</option>
+        <option value="evening">Evening</option>
+        <option value="weekly">Weekly</option>
+    </select>
+    <br>
+    <label for="usage_date">Date:</label>
+    <input type="date" name="usage_date" required>
+    <br>
+    <label for="usage_time">Time:</label>
+    <input type="time" name="usage_time" required>
+    <br>
+    <button type="submit">Add Log</button>
+</form>
+</section>
+
 {% endblock %}

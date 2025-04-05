@@ -11,4 +11,9 @@ urlpatterns = [
     path('skincare/create/', views.ProductCreate.as_view(), name='product_create'),
     path('skincare/<int:pk>/update/', views.ProductUpdate.as_view(), name='product_update'),
     path('skincare/<int:pk>/delete/', views.ProductDelete.as_view(), name='product_delete'),
+    path('logs/usage_logs/', views.usage_logs, name="usage_logs"),
+    path('logs/add_usage_log/', views.add_usage_log, name='add_usage_log'),
+    path('admin/', admin.site.urls),
+    path('', include('main_app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
