@@ -30,9 +30,9 @@ html {
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
     min-height: 100vh;
-    --nav-bg: rgba(104, 197, 248, 0.7);
-    --nav-bg-ff: rgba(104, 197, 248, 0.9);
-    --borders: rgb(36, 116, 248) solid 2px;
+    --nav-bg: pink;
+    --nav-bg-ff: rgb(202, 151, 160);
+    --borders: rgb(202, 151, 160) solid 2px;
     --text-color: rgb(17, 20, 17);
     --link-hover-color: rgb(16, 56, 158);
     --button-bg: rgb(245, 245, 245);
@@ -49,6 +49,32 @@ html {
     --font-reg: 1.6rem;
     --card-border-radius: 6px;
   }
+
+  .caveat-font {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  .krub-regular {
+    font-family: "Krub", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  h2 {
+    font-family: "Caveat", cursive;
+    font-size: var(--font-xl);
+  }
+
+  p, li, h1 {
+    font-family: "Krub", sans-serif;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 20px;
+  }
   
   header {
     width: 100%;
@@ -58,6 +84,7 @@ html {
   
   nav {
     margin: 10px;
+    background: var(--nav-bg);
   }
   
   ul {
@@ -181,8 +208,12 @@ html {
   
     nav,
     .header-logo-container {
-      margin: 10px 0;
-      padding: 0 15px;
+      margin: 0;
+      background: var(--nav-bg);
+      border: var(--borders);
+      border-radius: 5px;
+      margin: 0;
+      padding: 0;
     }
   
     /* visual fix to help align logo */
@@ -206,15 +237,6 @@ html {
   
     .page-header h1 {
       font-size: var(--font-xtreme);
-    }
-  
-    .page-header img {
-      height: 50px;
-      margin-left: 20px;
-    }
-  
-    .page-header img:first-of-type {
-      margin-left: 25px;
     }
   
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -243,9 +265,11 @@ html {
     nav,
     .header-logo-container {
       margin: 0;
-      background: var(--nav-bg-ff);
+      background: var(--nav-bg);
       border: var(--borders);
-      border-radius: 18px;
+      border-radius: 5px;
+      margin: 0;
+      padding: 0;
     }
   
     nav {

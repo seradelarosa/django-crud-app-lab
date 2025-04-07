@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/cats/cat-detail.css' %}" />
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}" />
 {% endblock %}
 
 
 {% block content %}
-<section class="cat-container">
-    <a href="javascript:history.back()"><button>Back</button></a>
-    <h3>{{product.name}}</h3>
+
+<div style="margin-bottom: 1rem;">
+  <button onclick="window.history.back()" class="btn">← Back</button>
+</div>
+
+<section class="product-container">
+    <h2>{{product.name}}</h2>
     <p><strong>Brand:</strong> {{ product.brand }}</p>
     <p><strong>Benefits:</strong> {{ product.benefits }}</p>
     <p><strong>Value:</strong> {{ product.value }}</p>
@@ -20,7 +24,9 @@
 </section>
 
 <section>
-  <h3>Recent Usage</h3>
+  <br />
+  <br />
+  <h1>Recent Usage</h1>
   <ul>
     {% for log in usage_logs %}
         <li>
@@ -35,8 +41,14 @@
      <!-- link to the full usage logs page -->
   <a href="{% url 'usage_logs' %}">View all usage logs</a>
 
+
+  <br />
+  <br />
+  <br />
+
   <!-- add new log -->
-  <h3>Add New Usage Log</h3>
+   <div class="new-log">
+  <h2>Add New Usage Log</h2>
   <form method="POST">
     {% csrf_token %}
     <label for="usage_category">Time of Day:</label>
@@ -55,5 +67,6 @@
     <button type="submit">Add Log</button>
 </form>
 </section>
+</div>
 
 {% endblock %}

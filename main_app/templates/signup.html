@@ -4,20 +4,13 @@
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} 
 {% block content %}
-
-<div style="margin-bottom: 1rem;"></div>
-  <button onclick="window.history.back()" class="btn">← Back</button>
-</div>
-
 <div class="page-header">
-  {% if product %}
-  <h1>Edit {{ product.name }}</h1>
-{% else %}
-  <h1>Add a Product</h1>
-{% endif %}
+  <h1>Sign Up</h1>
 </div>
-
-<form action="" method="post" class="form-container">
+{% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+{% endif %}
+<form action="" method="post" class="form-container" autocomplete="off">
   {% csrf_token %}
   <table>
     {{ form.as_table }}

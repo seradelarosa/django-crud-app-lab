@@ -5,17 +5,20 @@
 />
 {% endblock %} {% block content %}
 
-<h1>Sera's Evening Skincare Routine</h1>
+<h2>Evening Skincare</h2>
 <hr />
 
-<h3>Filters</h3>
-<ul>
-  <li><a href="{% url 'all_skincare' %}">All Skincare</a></li>
-  <li><a href="{% url 'morning' %}">Morning</a></li>
-  <li><a href="{% url 'evening' %}">Evening</a></li>
-  <li><a href="{% url 'weekly' %}">Weekly</a></li>
-  <li><a href="{% url 'product_create' %}">Add a Product</a></li>
-</ul>
+
+<nav>
+  <ul>
+      <li><a href="{% url 'all_skincare' %}">All Skincare</a></li>
+      <li><a href="{% url 'morning' %}">Morning</a></li>
+      <li><a href="{% url 'evening' %}">Evening</a></li>
+      <li><a href="{% url 'weekly' %}">Weekly</a></li>
+      <li><a href="{% url 'sera_skincare' %}">Sera's Favs</a></li>
+      <li><a href="{% url 'product_create' %}">Add a Product</a></li>
+  </ul>
+</nav>
 
 <section class="card-container">
   {% for product in skincare_products %}
@@ -26,7 +29,7 @@
           <div class="card-img-container">
             <img src="{% static product.image %}" alt="{{ product.product }}" />
           </div>
-          <a href="{% url 'product_detail' product.id %}"><h3 class="card-title">{{product.name}}</h3></a>
+          <a href="{% url 'product_detail' product.id %}"><h2 class="card-title">{{product.name}}</h2></a>
           <p><strong>Brand:</strong> {{ product.brand }}</p>
           <p><strong>Benefits:</strong> {{ product.benefits }}</p>
           <p><strong>Value:</strong> {{ product.value }}</p>

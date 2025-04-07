@@ -1,0 +1,142 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}" />
+{% endblock %} {% block content %}
+
+<h2>Sera's Skincare</h2>
+<hr />
+
+<nav>
+    <ul>
+        <li><a href="{% url 'all_skincare' %}">All Skincare</a></li>
+        <li><a href="{% url 'morning' %}">Morning</a></li>
+        <li><a href="{% url 'evening' %}">Evening</a></li>
+        <li><a href="{% url 'weekly' %}">Weekly</a></li>
+        <li><a href="{% url 'sera_skincare' %}">Sera's Favs</a></li>
+        <li><a href="{% url 'product_create' %}">Add a Product</a></li>
+    </ul>
+</nav>
+
+<h2>Morning Skincare</h2>
+
+<h1>Green Plum Refreshing Cleanser</h1>
+<p><strong>Brand:</strong> Beauty of Joseon</p>
+<p><strong>Benefits:</strong> A refreshing, gentle, low pH cleanser. Deep moisturizing, acne care, sooth irritated
+    skin, thorough cleansing, oil & moisture balancing.</p>
+<p><strong>Value:</strong>9.1</p>
+<p><strong>Category:</strong>morning</p>
+
+<h1>Pure Vitamin C24 Serum</h1>
+<p><strong>Brand:</strong>TIRTIR</p>
+<p><strong>Benefits:</strong>Pure vitamin C brightens the skin and corrects dark spots. Cica-7 soothes
+    irritation and redness. Triple collagen improves skin firmness.</p>
+<p><strong>Value:</strong>25.0</p>
+<p><strong>Category:</strong>morning</p>
+
+<h1>Rice 70 Glow Milky Toner</h1>
+<p><strong>Brand:</strong>Anua</p>
+<p><strong>Benefits:</strong>Brightens uneven skintone. Balances excess sebum and oil production. Helps protect
+    the skin barrier.</p>
+<p><strong>Value:</strong>19.89</p>
+<p><strong>Category:</strong>morning</p>
+
+<h1>Daily UV Defense Mineral Sunscreen SPF 45</h1>
+<p><strong>Brand:</strong>innisfree</p>
+<p><strong>Benefits:</strong>Safe for sensitive skin and acne-prone skin types. Doesn't clog pores. Evens
+    skintone, redness and spots. Hyaluronic acid and squaline deliver non-greasy, deep hydration and satin
+    finish. Cica soothes and calms skin. Neutralizing green tint color corrects visible redness. Defends skin
+    from early signs of aging due to sun exposure.</p>
+<p><strong>Value:</strong>17.6</p>
+<p><strong>Category:</strong>morning</p>
+
+<br />
+<br />
+
+<h2>Evening Skincare</h2>
+
+<h1>Whipped Mugtree Cleanser</h1>
+<p><strong>Brand:</strong>WHIPPED</p>
+<p><strong>Benefits:</strong>Mugwort and teatree face wash for oily skin, sebum and pore care and
+    eliminating blackheads. Deep pore cleansing with zero irriation.</p>
+<p><strong>Value:</strong>23.99</p>
+<p><strong>Category:</strong>evening</p>
+
+<h1>Adapalene Gel</h1>
+<p><strong>Brand:</strong>PanOxyl</p>
+<p><strong>Benefits:</strong>Topical retinoid to treat and clear acne.</p>
+<p><strong>Value:</strong>11.98</p>
+
+<h1>Resurfacing Retinol Serum</h1>
+<p><strong>Brand:</strong>CeraVe</p>
+<p><strong>Benefits:</strong>Visibly reduces post-acne marks and pores. Encapsulated retinol helps
+    resuface skin. Licorice root extract brightens the skin and dark marks. Niacinamide helps calm
+    skin.
+</p>
+<p><strong>Value:</strong>16.49</p>
+
+<h1>Collagen Lifting Eye Cream</h1>
+<p><strong>Brand:</strong>TIRTIR</p>
+<p><strong>Benefits:</strong>Plant-based collagen helps prevent wrinkles and sagging skin.
+    Tightens,
+    brightens and moisturizes under eye area.</p>
+<p><strong>Value:</strong>16.8</p>
+<p><strong>Category:</strong>evening</p>
+
+<h1>Green Plum Refreshing Cleanser</h1>
+<p><strong>Brand:</strong> Beauty of Joseon</p>
+<p><strong>Benefits:</strong>A refreshing, gentle, low pH cleanser. Deep
+    moisturizing, acne care, sooth
+    irritated skin, thorough cleansing, oil & moisture balancing.</p>
+<p><strong>Value:</strong>9.1</p>
+<p><strong>Category:</strong>morning</p>
+
+<h1>Vitamin C Cream</h1>
+<p><strong>Brand:</strong>Mario Badescu</p>
+<p><strong>Benefits:</strong>10% Vitamin C and Niacinamide brightens skin
+    tone, improves texture and
+    reduces hyperpigmentation. Silicone-free and safe for acne-prone skin.
+</p>
+<p><strong>Value:</strong>21.0</p>
+<p><strong>Category:</strong>evening</p>
+
+<br />
+<br />
+<h2>Weekly Skincare</h2>
+
+<h1>Zero Pore Blackhead Deep Cleansing Oil</h1>
+<p><strong>Brand:</strong>Medicube</p>
+<p><strong>Benefits:</strong>Makeup removal and pore care at once.
+    Care for deep sebum and blackheads.
+    LHA improves skin texture. Niacinamide eliminates sebum and
+    blackheads. Guaiazulene calms the skin.
+    Hyaluronic acid moisturizes and hydrates.</p>
+<p><strong>Value:</strong>15.21</p>
+<p><strong>Category:</strong>weekly</p>
+
+<h1>Collagen Overnight Wrapping Peel Off Face Mask</h1>
+<p><strong>Brand:</strong>Medicube</p>
+<p><strong>Benefits:</strong>Hyaluronic acid provides
+    hydration, plumping and fine line care.
+    Niacinamide improves texture, minimizes pores and leaves
+    a radiant glow. Glycerin improves dryness
+    and the skin barrier. Collagen extract boosts
+    elasticity, cares for wrinkles and gives a
+    youthful-looking complexion.</p>
+<p><strong>Value:</strong>14.9</p>
+<p><strong>Category:</strong>weekly</p>
+
+<h1>Botanical Exfoliating Scrub</h1>
+<p><strong>Brand:</strong>Mario Badescu</p>
+<p><strong>Benefits:</strong>Polishes and buffs away
+    dulling, pore-clogging buildup. Refines the look
+    of
+    uneven skin tone and texture. Ivory palm seeds
+    exfoliate, green tea extract restores and
+    coconut
+    extract conditions and nourishes. Safe for all
+    skin types.</p>
+<p><strong>Value:</strong>18.2</p>
+<p><strong>Category:</strong>weekly</p>
+
+
+
+{% endblock %}

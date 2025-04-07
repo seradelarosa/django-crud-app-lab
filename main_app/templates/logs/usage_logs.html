@@ -1,56 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/usage_logs.css' %}" />
+{% endblock %}
+{% block content %}
+
+<nav>
+    <ul>
+        <li><a href="{% url 'all_skincare' %}">All Skincare</a></li>
+        <li><a href="{% url 'morning' %}">Morning</a></li>
+        <li><a href="{% url 'evening' %}">Evening</a></li>
+        <li><a href="{% url 'weekly' %}">Weekly</a></li>
+        <li><a href="{% url 'sera_skincare' %}">Sera's Favs</a></li>
+        <li><a href="{% url 'product_create' %}">Add a Product</a></li>
+    </ul>
+</nav>
+
 <h2>Weekly Usage Log</h2>
 
-<!-- Display weekly calendar view -->
+    <!-- add new log -->
+    <div class="submit-log-container">
+        <h3>Add a New Usage Log</h3>
+        <form method="POST" action="{% url 'add_usage_log' %}">
+            {% csrf_token %}
+            <label for="product">Select Product:</label>
+            <select name="product" id="product" required>
+                {% for product in skincare_products %}
+                <option value="{{ product.id }}">{{ product.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="usage_category">Select Time of Day:</label>
+            <select name="usage_category" id="usage_category" required>
+                <option value="morning">Morning</option>
+                <option value="evening">Evening</option>
+                <option value="weekly">Weekly</option>
+            </select>
+
+            <label for="usage_time">Usage Time:</label>
+            <input type="datetime-local" name="usage_time" id="usage_time" required />
+
+            <button type="submit">Add Log</button>
+        </form>
+    </div>
+
+<!-- show weekly calendar view -->
 <div>
-    <h3>This Week's Log</h3>
+    <h3>Keep track of your skincare routine here!</h3>
     {% for day in days_of_week %}
-        <h4>{{ day|date:"l, F j, Y" }}</h4>  <!-- This will display the day of the week with the full date -->
-        <div>
-            <h5>Morning</h5>
+    <div>
+        <div class="day-container">
+            <h1>{{ day|date:"l, F j, Y" }}</h1>
+            <h3>Morning</h3>
             {% for log in usage_logs %}
-                {% if log.usage_time|date:"Y-m-d" == day|date:"Y-m-d" and log.usage_category == 'morning' %}
-                    <p>{{ log.product.name }} - {{ log.usage_time|date:"H:i" }}</p>
-                {% endif %}
-            {% endfor %}
-            
-            <h5>Evening</h5>
-            {% for log in usage_logs %}
-                {% if log.usage_time|date:"Y-m-d" == day|date:"Y-m-d" and log.usage_category == 'evening' %}
-                    <p>{{ log.product.name }} - {{ log.usage_time|date:"H:i" }}</p>
-                {% endif %}
+            {% if log.usage_time|date:"Y-m-d" == day|date:"Y-m-d" and log.usage_category == 'morning' %}
+            <p>{{ log.product.name }} - {{ log.usage_time|date:"H:i" }}</p>
+            {% endif %}
             {% endfor %}
 
-            <h5>Weekly</h5>
+            <h3>Evening</h3>
             {% for log in usage_logs %}
-                {% if log.usage_time|date:"Y-m-d" == day|date:"Y-m-d" and log.usage_category == 'weekly' %}
-                    <p>{{ log.product.name }} - {{ log.usage_time|date:"H:i" }}</p>
-                {% endif %}
+            {% if log.usage_time|date:"Y-m-d" == day|date:"Y-m-d" and log.usage_category == 'evening' %}
+            <p>{{ log.product.name }} - {{ log.usage_time|date:"H:i" }}</p>
+            {% endif %}
             {% endfor %}
         </div>
-    {% endfor %}
-</div>
-
-
-<!-- add new log -->
-<h3>Add a New Usage Log</h3>
-<form method="POST" action="{% url 'add_usage_log' %}">
-    {% csrf_token %}
-    <label for="product">Select Product:</label>
-    <select name="product" id="product" required>
-        {% for product in skincare_products %}
-            <option value="{{ product.id }}">{{ product.name }}</option>
         {% endfor %}
-    </select>
+    </div>
+    <div class="day-container">
+        <h1>Weekly</h1>
+        {% for log in usage_logs %}
+        {% if log.usage_category == 'weekly' %}
+        <p>{{ log.product.name }} - {{ log.usage_time|date:"H:i" }}</p>
+        {% endif %}
+        {% endfor %}
+    </div>
 
-    <label for="usage_category">Select Time of Day:</label>
-    <select name="usage_category" id="usage_category" required>
-        <option value="morning">Morning</option>
-        <option value="evening">Evening</option>
-        <option value="weekly">Weekly</option>
-    </select>
 
-    <label for="usage_time">Usage Time:</label>
-    <input type="datetime-local" name="usage_time" id="usage_time" required />
-
-    <button type="submit">Add Log</button>
-</form>
+    {% endblock %}

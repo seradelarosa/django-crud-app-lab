@@ -118,6 +118,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Add this variable to specify where decorators and mixins should redirect to
+LOGIN_URL = 'accounts/login/'  # Redirect unauthenticated users to the login page
+
+
+# Add this variable to specify where successful logins should redirect to
+LOGIN_REDIRECT_URL = 'all_skincare'
+LOGOUT_REDIRECT_URL = 'home'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

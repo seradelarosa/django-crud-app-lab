@@ -5,6 +5,10 @@ main {
     flex-wrap: wrap;
     height: 100%;
   }
+
+.welcome {
+  border: pink 1px solid;
+}
   
   main > section {
     width: 100%;
@@ -21,10 +25,6 @@ main {
   
   .logo-container {
     max-width: 375px;
-  }
-  
-  .cat-container {
-    width: 80%;
   }
   
   .login {

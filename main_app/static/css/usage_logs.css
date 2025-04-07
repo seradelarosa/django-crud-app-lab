@@ -1,0 +1,42 @@
+.day-container {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 3rem; 
+}
+
+.divider {
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+}
+
+.submit-log-container {
+    border: 3px solid pink;
+    padding: 10px;
+    margin: 3rem; 
+}
+
+.caveat-font {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  .krub-regular {
+    font-family: "Krub", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  h1 {
+    font-family: "Caveat", cursive;
+    font-size: var(--font-xl);
+  }
+
+  p, li {
+    font-family: "Krub", sans-serif;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 20px;
+  }

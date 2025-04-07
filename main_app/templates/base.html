@@ -10,6 +10,9 @@
     <!-- add shortcut icon here later -->
     <link rel="shortcut icon" type="image/png" href="" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <title>Clean Slate - Sera's Skincare and Beyond</title>
     {% block head %}
@@ -18,19 +21,28 @@
 
 <body>
     <header>
-        <div class="header-logo-container">
-            <a href="/">
-                <!-- correct image src later -->
-                <img src="{% static 'images/placeholder.svg' %}" alt="The Clean Slate Logo" />
-            </a>
-        </div>
+        {% if user.is_authenticated %}
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="{% url 'all_skincare' %}">Skincare</a></li>
-                <li><a href="{% url 'usage_logs' %}">Your Calendar</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'all_skincare' %}">My Collection</a></li>
+                <li><a href="{% url 'usage_logs' %}">My Calendar</a></li>
+                <li>
+                    <form id="logout-form" method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Log out</button>
+                    </form>
+                </li>
             </ul>
         </nav>
+        {% else %}
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
+        {% endif %}
     </header>
     <main>
         {% block content %}
